@@ -497,8 +497,7 @@ class AndroidBuilder(object):
 
         if self._project._is_js_project():
             """
-            add by tzl at 2017-11-30
-            if just compile so file so ingore compile_js_scripts
+            add by tzl old is 'compile_obj.compile_js_scripts(assets_dir, assets_dir)' new is 'if not no_apk:compile_obj.compile_js_scripts(assets_dir, assets_dir)'
             """
             if not no_apk:
                 compile_obj.compile_js_scripts(assets_dir, assets_dir)

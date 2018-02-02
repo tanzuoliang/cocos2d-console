@@ -137,6 +137,9 @@ class CCPluginCompile(cocos.CCPlugin):
                                           MultiLanguage.get_string('COMPILE_ERROR_WRONG_NDK_MODE_FMT',
                                                                    available_ndk_modes))
         self._no_apk = args.no_apk
+        """
+          add by tzl  self._just_apk = args.just_apk or "0"
+        """
         self._just_apk = args.just_apk or "0"
 
         self.app_abi = None
@@ -473,7 +476,7 @@ class CCPluginCompile(cocos.CCPlugin):
         builder.update_project(self._ap)
         
         """
-        add by tzl
+        add by tzl old is 'if (not self._project._is_script_project() or self._project._is_native_support()):' now is 'if self._just_apk == "0" and (not self._project._is_script_project() or self._project._is_native_support()):'
         """
         if self._just_apk == "0" and (not self._project._is_script_project() or self._project._is_native_support()):
             if self._ndk_mode != "none":
